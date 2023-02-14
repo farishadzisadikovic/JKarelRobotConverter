@@ -33,43 +33,43 @@ import sys
 import os
 
 hexdata = []
-path = sys.argv[1]
 
-for path in sys.argv:
-    with open(path, 'rb') as f:
-        hexdata = f.read().hex()
 def isJarel():
-    print("This is a Jarel world file.\n")
+    if byteValue == "0e32ee4672937cf8":  
+        #this is the part where it starts writing a new file with the converted string
+        print("This is a Jarel world file.\n")
+        convertedStr = hexdata[0:len(hexdata)-64] + "c07500c54fec2e52" + hexdata[-48:]
+        print(convertedStr + "\n")
+        print("This is now a Karel world file.\n")
 
 def isKarel():
-    print("This is a Karel world file.\n")
+    if byteValue == "c07500c54fec2e52":
+        print("This is a Karel world file.\n")
+        convertedStr = hexdata[0:len(hexdata)-64] + "0e32ee4672937cf8" + hexdata[-48:]
+        print(convertedStr + "\n")
+        print("This is now a Jarel world file.\n")
 
 def notKarelOrJarel():
-    print("This is not a Karel world file nor a Jarel world file.\n")
-    
-print(hexdata, "\n")
+    if (byteValue != "c07500c54fec2e52") and (byteValue != "0e32ee4672937cf8"):
+        print("This is not a Karel world file nor a Jarel world file.\n")
+        
+sys.argv = sys.argv[1:]  
+if len(sys.argv) == 0:
+      sys.exit("You need to put a file or directory.")
+for path in sys.argv:
+    #if os.path.isdir(path) or os.path.isfile(path):
+    with open(path, 'rb') as f:
+        hexdata = f.read().hex()
 
-"""
-This will print out the 8 bytes that we can compare to see
-if it is a Karel or a Jarel world file
-"""
-byteValue = hexdata[-64:-48]
-print(byteValue, "\n")
+        print(hexdata, "\n")
 
-#This part might be going into the writing part
-if byteValue == "0e32ee4672937cf8":
-    isJarel()
-    convertedStr = hexdata[0:len(hexdata)-64] + "c07500c54fec2e52" + hexdata[-48]
-    print(convertedStr + "\n")
-    print("This is now a Karel world file.\n")
-elif byteValue == "c07500c54fec2e52":
-    isKarel()
-    convertedStr = hexdata[0:len(hexdata)-64] + "0e32ee4672937cf8" + hexdata[-48]
-    print(convertedStr + "\n")
-    print("This is now a Jarel world file.\n")
-else:
-    notKarelOrJarel()
-    
+        """
+        This will print out the 8 bytes that we can compare to see
+        if it is a Karel or a Jarel world file
+        """
+        byteValue = hexdata[-64:-48]
+        print(byteValue, "\n")
 
-
-
+        isJarel()
+        isKarel()
+        notKarelOrJarel()
