@@ -21,18 +21,6 @@ the program reads in each file, checks if it is a Jarel World file or a Karel Wo
 and converts it to the other format. The converted file is saved with the same 
 filename but with a different extension. After the conversion, a message box is displayed to 
 inform the user that the conversion was successful.
-
-
-Mars Hill University Honor Code
-
-We, the students of Mars Hill University pledge ourselves 
-to uphold integrity, honesty, and academic responsibility 
-in and out of the classroom.
-
-Mars Hill University Honor Pledge
-
-On my honor, I have neither given nor received any academic aid 
-or information that would violate the Honor Code of Mars Hill University
 """
 
 import binascii
