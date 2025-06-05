@@ -17,17 +17,9 @@ and converts it to the other format. The converted file is saved with the same
 filename but with a different extension. After the conversion, a message box is displayed to 
 inform the user that the conversion was successful.
 
-This program is currently compatible only with macOS. To properly install and access 
-the application, please follow the instructions below:
-
-# Installation:
-3. After navigating to the "JKarelRobot Converter" folder run this command to create a standalone executable: pyinstaller --onefile --windowed converterGUI.py
-4. Once this has been created, the application will be located in the 'dist' directory. Everything else that has been created could be erased except the application.
-5. The application is now successfully installed and can be accessed from the "Applications" folder.
-
 ## Installation
 
-To run this project locally:
+This program is currently compatible only with macOS. To run this project locally:
 
 1. **Clone the repository**:
    ```bash
@@ -35,15 +27,10 @@ To run this project locally:
    ```
 2. **Navigate to the project directory**:
    ```bash
-   cd 
+   cd JKarelRobotConverter
    ```
-3. **Install dependencies**:
+3. **Creating a standalone executable**:
    ```bash
-   npm install
+   pyinstaller --onefile --windowed converterGUI.py
    ```
-4. **Start the development server**:
-   ```bash
-   npm run preview
-   ```
-
-## Technologies Used
+4. **Once this has been created, the application will be located in the 'dist' directory. Everything else that has been created could be erased except the application**
